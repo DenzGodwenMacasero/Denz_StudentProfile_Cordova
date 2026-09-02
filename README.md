@@ -4,23 +4,6 @@
 
 A responsive student profile website created for Activity 3. It contains my personal information, educational background, interests, goals, and technical skills.
 
-## Project Structure
-
-```text
-www/
-├── index.html
-├── css/
-│   └── index.css
-├── img/
-│   └── profile.jpg
-└── js/
-    └── script.js
-```
-
-* **index.html** – Website content and structure
-* **index.css** – Design and responsive layout
-* **profile.jpg** – Profile picture
-* **script.js** – Cordova JavaScript file
 
 ## Responsive Design
 
