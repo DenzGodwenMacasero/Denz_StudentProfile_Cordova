@@ -23,23 +23,23 @@ Used CSS media queries, CSS Grid, flexible layouts, and responsive sizing for De
 
 4. UI/UX Principles Applied
 
-Responsive Layout
+**Responsive Layout**
 
 The layout changes from a multi-column desktop design to a two-column tablet design and then to a single-column mobile design. This keeps content organized without overlapping or unnecessary horizontal scrolling.
 
-Mobile-Friendly Spacing
+**Mobile-Friendly Spacing**
 
 Sections, headings, paragraphs, navigation links, buttons, and skill cards have consistent padding and margins. Mobile controls have a larger touch area for easier interaction.
 
-Appropriate Typography
+**Appropriate Typography**
 
 The application uses a consistent system font, readable paragraph sizes, responsive headings, clear line spacing, and a visible difference between headings and supporting text.
 
-Clear Visual Hierarchy
+**Clear Visual Hierarchy**
 
 The student's name and main heading are visually prominent. Section labels, headings, descriptions, skill names, and supporting information use different sizes and weights to make the information easy to scan.
 
-Usable Controls
+**Usable Controls**
 
 The About and Skills links have clear labels, sufficient spacing, and touch-friendly sizing. Buttons are also large enough to use comfortably on smaller screens.
 
@@ -47,9 +47,6 @@ Basic Accessibility
 
 The application uses semantic HTML elements, meaningful headings, an accessible navigation label, descriptive image alternative text, readable text, visible focus states, and sufficient contrast. Important information does not depend only on color.
 
-Consistent Design
-
-The same typography, spacing system, border radius, card treatment, navigation style, and visual language are used throughout the Header, About, Skills, and Footer sections.
 
 5. Navigation
 
@@ -60,16 +57,14 @@ The **About** and **Skills** links use normal HTML anchor links:
 <a href="#skills">Skills</a>
 ```
 
-Each link navigates to the corresponding section within the same page. **JavaScript is not used for navigation or responsive behavior.**
-
 ## 6. How to Run
 
-### Requirements
+## Requirements
 
 * Node.js and npm
 * Apache Cordova
 
-### Run the Student Profile
+ **Run the Student Profile**
 
 Open a terminal inside the project folder and run:
 
@@ -88,21 +83,21 @@ Open the local URL provided in the terminal to view the Student Profile in your 
 The application was tested on desktop, tablet, and mobile screen sizes using the **Mobile FIRST Chrome extension**.
 
 
-## 7. Application Screenshots
+**7. Application Screenshots**
 
-### Desktop Layout
+## Desktop Layout
 
 ![Desktop Layout](https://github.com/user-attachments/assets/7f7f1e73-5b97-48a5-b92d-c780f44f76d6)
 
-### Tablet Layout
+## Tablet Layout
 
 ![Tablet Layout](https://github.com/user-attachments/assets/1a2b5046-d5dd-45bd-9097-0147b7bdc317)
 
-### Mobile Layout
+## Mobile Layout
 
 ![Mobile Layout](https://github.com/user-attachments/assets/19c99f5c-d995-446d-ac3d-857fdccaf19a)
 
-### How the screenshots were tested
+## How the screenshots were tested
 
 For the screenshots, I apologize for not being able to use ang Android Studio emulator kay my laptop was not compatible with running it properly. That's why I used the Mobile Simulator Chrome extension to test the application on desktop, tablet, and mobile screen sizes.
 
