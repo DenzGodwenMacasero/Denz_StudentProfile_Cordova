@@ -1,7 +1,5 @@
 Denz Student Profile — Activity 3
 
-Responsive Student Profile application built with **HTML and CSS** in Apache Cordova for ITCC 41.
-
 1. Project Description
 
 This project is my improved Student Profile application **Denz Godwen D. Macasero**, a BSIT student. Activity 3 focuses on responsive design and Mobile UI/UX Design Principles. The application adapts its layout, spacing, typography, navigation, and content for desktop, tablet, and mobile screen sizes.
@@ -97,7 +95,7 @@ The application was tested on desktop, tablet, and mobile screen sizes using the
 
 ## How the screenshots were tested
 
-For the screenshots, I apologize for not being able to use ang Android Studio emulator kay my laptop was not compatible with running it properly. That's why I used the Mobile Simulator Chrome extension to test the application on desktop, tablet, and mobile screen sizes.
+For the screenshots, I apologize for not being able to use ang Android Studio emulator kay my laptop was not compatible with running it properly (8RAM ra naa 16gb need para maka use ug emulator). That's why I used the Mobile Simulator Chrome extension to test the application on desktop, tablet, and mobile screen sizes.
 
 
 
