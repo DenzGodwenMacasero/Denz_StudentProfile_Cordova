@@ -4,7 +4,7 @@ Responsive Student Profile application built with **HTML and CSS** in Apache Cor
 
 1. Project Description
 
-This project is an improved Student Profile application for **Denz Godwen D. Macasero**, a BSIT student. Activity 3 focuses on responsive design and Mobile UI/UX Design Principles. The application adapts its layout, spacing, typography, navigation, and content for desktop, tablet, and mobile screen sizes.
+This project is my improved Student Profile application **Denz Godwen D. Macasero**, a BSIT student. Activity 3 focuses on responsive design and Mobile UI/UX Design Principles. The application adapts its layout, spacing, typography, navigation, and content for desktop, tablet, and mobile screen sizes.
 
 2. Application Structure
 
@@ -52,10 +52,10 @@ The application uses semantic HTML elements, meaningful headings, an accessible 
 
 The **About** and **Skills** links use normal HTML anchor links:
 
-```html
+html
 <a href="#about">About</a>
 <a href="#skills">Skills</a>
-```
+
 
 ## 6. How to Run
 
@@ -68,15 +68,13 @@ The **About** and **Skills** links use normal HTML anchor links:
 
 Open a terminal inside the project folder and run:
 
-```bash
+
 npm install
-```
 
 Then run:
 
-```bash
 npx serve www
-```
+
 
 Open the local URL provided in the terminal to view the Student Profile in your browser.
 
