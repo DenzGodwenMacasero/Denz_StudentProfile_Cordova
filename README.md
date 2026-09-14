@@ -1,104 +1,83 @@
-Denz Student Profile — Activity 3
+# Student Profile Application
 
-1. Project Description
+## Project Description
 
-This project is my improved Student Profile application **Denz Godwen D. Macasero**, a BSIT student. Activity 3 focuses on responsive design and Mobile UI/UX Design Principles. The application adapts its layout, spacing, typography, navigation, and content for desktop, tablet, and mobile screen sizes.
+This project is a simple multi-page student profile website that I created using HTML and CSS. It contains my personal information, skills, projects, and contact details.
 
-2. Application Structure
+## Application Pages
 
-The application is organized into these main parts:
+The website has five pages:
 
-* **Header** — contains the profile picture, complete name, subtitle, and navigation menu.
-* **Navigation Menu** — contains **About** and **Skills** links that move to sections on the same page.
-* **About Section** — contains personal information, interests, educational background, and goals.
-* **Skills Section** — contains six skills with short descriptions.
-* **Footer** — contains the copyright notice, name, and current year.
+* **Profile** – My main profile page
+* **About** – My background, interests, education, and goals
+* **Skills** – My skills and a short description of each
+* **Projects** – My projects and the technologies I used
+* **Contact** – My email and social media links
 
-3. Responsive Design
+## Navigation
 
-Used CSS media queries, CSS Grid, flexible layouts, and responsive sizing for Desktop, Tablet, and Mobile screens.
+I used normal HTML links to connect all five pages. The navigation bar is available on each page so users can easily move between the pages.
 
+## Responsive Design
 
-4. UI/UX Principles Applied
+The website is designed to work on:
 
-**Responsive Layout**
+* Desktop
+* Tablet
+* Mobile
 
-The layout changes from a multi-column desktop design to a two-column tablet design and then to a single-column mobile design. This keeps content organized without overlapping or unnecessary horizontal scrolling.
+I tested the responsive design using Google Chrome and the Mobile Simulator browser extension.
 
-**Mobile-Friendly Spacing**
+## UI/UX Principles Applied
 
-Sections, headings, paragraphs, navigation links, buttons, and skill cards have consistent padding and margins. Mobile controls have a larger touch area for easier interaction.
+I applied the following UI/UX principles:
 
-**Appropriate Typography**
+* Consistent layout
+* Clear navigation
+* Proper spacing
+* Readable text
+* Visual hierarchy
+* Responsive design
+* Simple and easy-to-use interface
 
-The application uses a consistent system font, readable paragraph sizes, responsive headings, clear line spacing, and a visible difference between headings and supporting text.
+## Screenshots
 
-**Clear Visual Hierarchy**
+### Profile
 
-The student's name and main heading are visually prominent. Section labels, headings, descriptions, skill names, and supporting information use different sizes and weights to make the information easy to scan.
+<img width="706" height="589" alt="Profile Page" src="https://github.com/user-attachments/assets/21e29709-23b0-4f3e-82b9-a72266b32250" />
 
-**Usable Controls**
+### About
 
-The About and Skills links have clear labels, sufficient spacing, and touch-friendly sizing. Buttons are also large enough to use comfortably on smaller screens.
+<img width="663" height="576" alt="About Page" src="https://github.com/user-attachments/assets/988508c2-48bb-47c1-87ad-774a97351766" />
 
-Basic Accessibility
+### Skills
 
-The application uses semantic HTML elements, meaningful headings, an accessible navigation label, descriptive image alternative text, readable text, visible focus states, and sufficient contrast. Important information does not depend only on color.
+<img width="701" height="605" alt="Skills Page" src="https://github.com/user-attachments/assets/2b99dba4-1fdb-46d3-b197-a934f42ef2f0" />
 
+### Projects
 
-5. Navigation
+<img width="548" height="578" alt="Project Page" src="https://github.com/user-attachments/assets/e6cc8340-ff67-49c7-9e81-0b37d7058d22" />
 
-The **About** and **Skills** links use normal HTML anchor links:
+### Contact
 
-html
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
+<img width="508" height="578" alt="Contact Page" src="https://github.com/user-attachments/assets/bf7348d8-70fa-4ea0-a095-f6b923e35658" />
 
+### Tablet
 
-## 6. How to Run
+<img width="652" height="634" alt="Tablet" src="https://github.com/user-attachments/assets/d2560a31-0f3c-4574-9af5-c5391e49ec54" />
 
-## Requirements
+### Desktop 
 
-* Node.js and npm
-* Apache Cordova
-
- **Run the Student Profile**
-
-Open a terminal inside the project folder and run:
-
-
-npm install
-
-Then run:
-
-npx serve www
+<img width="894" height="602" alt="Desktop" src="https://github.com/user-attachments/assets/332b9719-5c88-429b-aa81-690522b4da55" />
 
 
-Open the local URL provided in the terminal to view the Student Profile in your browser.
+## How to Run
 
-The application was tested on desktop, tablet, and mobile screen sizes using the **Mobile FIRST Chrome extension**.
+1.Open the project in Visual Studio Code.
+2.Open the terminal in the project folder.
+3.Make sure Apache Cordova is installed.
+4.Run the project using Cordova commands when a compatible Android device or emulator is available.
+5.For responsive testing, I used Google Chrome with the Mobile Simulator browser extension.
 
-
-**7. Application Screenshots**
-
-## Desktop Layout
-
-![Desktop Layout](https://github.com/user-attachments/assets/7f7f1e73-5b97-48a5-b92d-c780f44f76d6)
-
-## Tablet Layout
-
-![Tablet Layout](https://github.com/user-attachments/assets/1a2b5046-d5dd-45bd-9097-0147b7bdc317)
-
-## Mobile Layout
-
-![Mobile Layout](https://github.com/user-attachments/assets/19c99f5c-d995-446d-ac3d-857fdccaf19a)
-
-## How the screenshots were tested
-
-For the screenshots, I apologize for not being able to use ang Android Studio emulator kay my laptop was not compatible with running it properly (8RAM ra naa 16gb need para maka use ug emulator). That's why I used the Mobile Simulator Chrome extension to test the application on desktop, tablet, and mobile screen sizes.
-
-
-
-**Denz Godwen D. Macasero**
-BSIT Student
+I used the Mobile Simulator extension for testing because my laptop could not properly run the available Cordova emulator devices. (Dili kadaog ang laptop)
 
