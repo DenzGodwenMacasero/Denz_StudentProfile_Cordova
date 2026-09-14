@@ -73,11 +73,10 @@ I applied the following UI/UX principles:
 
 ## How to Run
 
-1.Open the project in Visual Studio Code.
-2.Open the terminal in the project folder.
-3.Make sure Apache Cordova is installed.
-4.Run the project using Cordova commands when a compatible Android device or emulator is available.
-5.For responsive testing, I used Google Chrome with the Mobile Simulator browser extension.
+1. Open the project in Visual Studio Code.
+2. Open the terminal in the project folder.
+3. Make sure Apache Cordova is installed.
+4. Run the project using Cordova when a compatible Android device or emulator is available.
+5. For responsive testing, I used Google Chrome with the Mobile Simulator browser extension.
 
-I used the Mobile Simulator extension for testing because my laptop could not properly run the available Cordova emulator devices. (Dili kadaog ang laptop)
-
+Since my laptop could not properly run the available Android emulator devices, I used Chrome and the Mobile Simulator extension to test the layout on desktop, tablet, and mobile screen sizes.
