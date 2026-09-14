@@ -492,3 +492,118 @@ h2 {
         transition: none !important;
     }
 }
+
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.project-card {
+    min-height: 260px;
+    padding: 26px;
+    border: 1px solid #dde3ee;
+    border-radius: 18px;
+    background: #ffffff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 28px rgba(31, 43, 70, 0.08);
+}
+
+.project-number {
+    display: inline-block;
+    color: #3157c8;
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+}
+
+.project-card h2 {
+    margin: 22px 0 10px;
+    font-size: 1.35rem;
+    line-height: 1.25;
+}
+
+.project-card p {
+    margin: 0 0 20px;
+    color: #5f6b80;
+    font-size: 0.95rem;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.project-tags span {
+    padding: 6px 10px;
+    border: 1px solid #d9e0ed;
+    border-radius: 999px;
+    background: #f5f7fb;
+    color: #3b4962;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.contact-list {
+    display: grid;
+    gap: 14px;
+    margin-top: 28px;
+}
+
+.contact-item {
+    display: grid;
+    gap: 4px;
+    padding: 18px;
+    border: 1px solid #dde3ee;
+    border-radius: 14px;
+    background: #ffffff;
+}
+
+.contact-item span {
+    color: #788297;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.contact-item a,
+.contact-item strong {
+    color: #26324a;
+    font-size: 0.98rem;
+    overflow-wrap: anywhere;
+}
+
+.contact-item a {
+    color: #3157c8;
+    font-weight: 700;
+}
+
+.skill-card h2 {
+    margin: 22px 0 8px;
+    font-size: 1.25rem;
+    line-height: 1.25;
+}
+
+@media (max-width: 900px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        min-height: auto;
+    }
+}
+
