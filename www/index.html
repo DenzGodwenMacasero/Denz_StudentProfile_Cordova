@@ -2,152 +2,421 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: content:;">
+
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self' data: https://ssl.gstatic.com;
+                   style-src 'self' 'unsafe-inline';
+                   img-src 'self' data: content:;">
+
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="description" content="Responsive student profile for Denz Godwen D. Macasero">
+
+    <meta name="description"
+          content="Responsive student profile for Denz Godwen D. Macasero">
+
     <title>Denz Macasero | Student Profile</title>
+
     <link rel="stylesheet" href="css/index.css">
 </head>
+
 <body>
+
     <header class="site-header">
         <div class="container header-inner">
-            <a class="brand" href="index.html" aria-label="Denz Macasero - Profile homepage">
-                <img src="img/profile.jpg" alt="Denz Macasero profile picture">
+
+            <a class="brand" href="index.html"
+               aria-label="Denz Macasero - Profile homepage">
+
+                <img src="img/profile.jpg"
+                     alt="Denz Macasero profile picture">
+
                 <span class="brand-text">
-                    <strong>Denz Godwen D. Macasero</strong>
+                    <strong id="header-name">
+                        Denz Godwen D. Macasero
+                    </strong>
+
                     <span>BSIT Student • About Myself</span>
                 </span>
+
             </a>
 
             <nav class="site-nav" aria-label="Main navigation">
-    <a href="index.html" aria-current="page">Profile</a>
-    <a href="about.html">About</a>
-    <a href="skills.html">Skills</a>
-    <a href="projects.html">Projects</a>
-    <a href="contact.html">Contact</a>
-
-         </nav>
+                <a href="index.html" aria-current="page">Profile</a>
+                <a href="about.html">About</a>
+                <a href="skills.html">Skills</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+            </nav>
 
         </div>
     </header>
 
+
     <main>
+
         <section class="hero" aria-labelledby="profile-title">
+
             <div class="container hero-grid">
+
                 <div class="hero-copy">
-                    <p class="eyebrow">Student profile • Responsive UI/UX</p>
-                    <h1 id="profile-title">Hello, I'm <span>Denz.</span></h1>
-                    <p class="hero-text">
-                        A Bachelor of Science in Information Technology student who enjoys building useful,
-                        clean, and user-friendly digital experiences.
+
+                    <p class="eyebrow">
+                        Student profile • Responsive UI/UX
                     </p>
-                  <div class="hero-actions" aria-label="Profile shortcuts">
-    <a class="button primary" href="about.html">About Me</a>
-    <a class="button secondary" href="projects.html">View Projects</a>
-</div> 
-            </div>
-                <aside class="hero-card" aria-label="Student information">
-                    <div class="info-row">
-                        <span>Program</span>
-                        <strong>BS Information Technology</strong>
+
+                    <h1 id="profile-title">
+                        Hello, I'm
+                        <span id="profile-short-name">Denz.</span>
+                    </h1>
+
+                    <p class="hero-text" id="profile-about">
+                        A Bachelor of Science in Information Technology
+                        student who enjoys building useful, clean, and
+                        user-friendly digital experiences.
+                    </p>
+
+                    <div class="hero-actions" aria-label="Profile shortcuts">
+
+                        <a class="button primary" href="#about">
+                            About Me
+                        </a>
+
+                        <a class="button secondary" href="#skills">
+                            View Skills
+                        </a>
+
                     </div>
+
+                    <button
+                        type="button"
+                        class="button primary edit-profile-button"
+                        id="edit-profile-btn">
+
+                        Edit Profile
+
+                    </button>
+
+                </div>
+
+
+                <aside class="hero-card"
+                       aria-label="Student information">
+
+                    <div class="info-row">
+                        <span>Full Name</span>
+
+                        <strong id="display-name">
+                            Denz Godwen D. Macasero
+                        </strong>
+                    </div>
+
+                    <div class="info-row">
+                        <span>Course</span>
+
+                        <strong id="display-course">
+                            BS Information Technology
+                        </strong>
+                    </div>
+
+                    <div class="info-row">
+                        <span>Year Level</span>
+
+                        <strong id="display-year">
+                            3rd Year
+                        </strong>
+                    </div>
+
                     <div class="info-row">
                         <span>Focus</span>
-                        <strong>Web Development &amp; UI/UX</strong>
+
+                        <strong>
+                            Web Development &amp; UI/UX
+                        </strong>
                     </div>
+
                     <div class="info-row">
                         <span>Goal</span>
-                        <strong>Become a skilled web developer</strong>
+
+                        <strong>
+                            Become a skilled web developer
+                        </strong>
                     </div>
+
                 </aside>
+
             </div>
+
         </section>
 
-        <section id="about" class="content-section" aria-labelledby="about-title">
-            <div class="container section-grid">
-                <div>
-                    <p class="section-label">01 • About</p>
-                    <h2 id="about-title">About Myself</h2>
+
+        <section
+            id="edit-profile-section"
+            class="content-section edit-profile-section"
+            style="display: none;">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div>
+                        <p class="section-label">
+                            EDIT • PROFILE
+                        </p>
+
+                        <h2>
+                            Edit Profile
+                        </h2>
+                    </div>
+
+                    <p class="section-intro">
+                        Update your student profile information below.
+                    </p>
+
                 </div>
+
+
+                <form id="profile-form">
+
+                    <div class="form-group">
+
+                        <label for="full-name">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="full-name"
+                            name="full-name"
+                            placeholder="Enter your full name">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="course">
+                            Course
+                        </label>
+
+                        <input
+                            type="text"
+                            id="course"
+                            name="course"
+                            placeholder="Enter your course">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="year-level">
+                            Year Level
+                        </label>
+
+                        <input
+                            type="text"
+                            id="year-level"
+                            name="year-level"
+                            placeholder="Example: 3rd Year">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="about-me">
+                            About Me
+                        </label>
+
+                        <textarea
+                            id="about-me"
+                            name="about-me"
+                            rows="5"
+                            placeholder="Tell something about yourself"></textarea>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="skills">
+                            Skills
+                        </label>
+
+                        <textarea
+                            id="skills"
+                            name="skills"
+                            rows="4"
+                            placeholder="Example: HTML, CSS, JavaScript, Python, Java"></textarea>
+
+                    </div>
+
+
+                    <p
+                        id="form-message"
+                        class="form-message">
+                    </p>
+
+
+                    <div class="form-actions">
+
+                        <button
+                            type="submit"
+                            class="button primary">
+
+                            Save Profile
+
+                        </button>
+
+                        <button
+                            type="button"
+                            class="button secondary"
+                            id="cancel-profile-btn">
+
+                            Cancel
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <section
+            id="about"
+            class="content-section"
+            aria-labelledby="about-title">
+
+            <div class="container section-grid">
+
+                <div>
+
+                    <p class="section-label">
+                        01 • About
+                    </p>
+
+                    <h2 id="about-title">
+                        About Myself
+                    </h2>
+
+                </div>
+
+
                 <div class="section-content">
-                    <p>
-                        I am Denz Godwen D. Macasero, a BSIT student at Xavier University – Ateneo de Cagayan.
-                        I am interested in technology, web development, and creating applications that are simple
-                        and comfortable for people to use. I also enjoy gaming and exploring new ideas that help me
+
+                    <p id="about-display">
+                        I am Denz Godwen D. Macasero, a BSIT student
+                        at Xavier University – Ateneo de Cagayan.
+                        I am interested in technology, web development,
+                        and creating applications that are simple and
+                        comfortable for people to use. I also enjoy
+                        gaming and exploring new ideas that help me
                         improve my technical and creative skills.
                     </p>
+
+
                     <p>
-                        My goal is to continue developing my skills in web development and UI/UX design while gaining
-                        practical experience through projects. I want to become a capable web developer who can turn
-                        ideas into responsive, accessible, and useful applications. I believe consistent practice,
-                        teamwork, and learning from feedback will help me grow as an IT professional.
+                        My goal is to continue developing my skills
+                        in web development and UI/UX design while
+                        gaining practical experience through projects.
+                        I want to become a capable web developer who
+                        can turn ideas into responsive, accessible,
+                        and useful applications.
                     </p>
-                    <div class="interest-list" aria-label="Interests">
+
+
+                    <div
+                        class="interest-list"
+                        aria-label="Interests">
+
                         <span>Web Development</span>
                         <span>UI/UX Design</span>
                         <span>Gaming</span>
                         <span>Technology</span>
+
                     </div>
+
                 </div>
+
             </div>
+
         </section>
 
-        <section id="skills" class="content-section skills-section" aria-labelledby="skills-title">
+
+        <section
+            id="skills"
+            class="content-section skills-section"
+            aria-labelledby="skills-title">
+
             <div class="container">
+
                 <div class="section-heading">
+
                     <div>
-                        <p class="section-label">02 • Skills</p>
-                        <h2 id="skills-title">My Skills</h2>
+
+                        <p class="section-label">
+                            02 • Skills
+                        </p>
+
+                        <h2 id="skills-title">
+                            My Skills
+                        </h2>
+
                     </div>
-                    <p class="section-intro">A growing set of technical and creative skills developed through coursework and personal projects.</p>
+
+                    <p class="section-intro">
+                        A growing set of technical and creative
+                        skills developed through coursework and
+                        personal projects.
+                    </p>
+
                 </div>
 
-                <div class="skills-grid">
-                    <article class="skill-card">
-                        <span class="skill-number">01</span>
-                        <h3>HTML</h3>
-                        <p>Builds structured, semantic web pages with clear content organization.</p>
-                    </article>
-                    <article class="skill-card">
-                        <span class="skill-number">02</span>
-                        <h3>CSS</h3>
-                        <p>Creates responsive layouts, readable typography, spacing, and consistent visual styles.</p>
-                    </article>
-                    <article class="skill-card">
-                        <span class="skill-number">03</span>
-                        <h3>JavaScript</h3>
-                        <p>Understands basic scripting concepts for interactive web applications.</p>
-                    </article>
-                    <article class="skill-card">
-                        <span class="skill-number">04</span>
-                        <h3>Python</h3>
-                        <p>Uses Python for programming exercises, logic, and application development.</p>
-                    </article>
-                    <article class="skill-card">
-                        <span class="skill-number">05</span>
-                        <h3>Java</h3>
-                        <p>Develops object-oriented programs and desktop application exercises.</p>
-                    </article>
-                    <article class="skill-card">
-                        <span class="skill-number">06</span>
-                        <h3>Figma &amp; UI/UX</h3>
-                        <p>Creates interface ideas and applies usability principles to improve user experience.</p>
-                    </article>
+
+                <div
+                    class="skills-grid"
+                    id="skills-display">
                 </div>
+
             </div>
+
         </section>
+
     </main>
 
+
     <footer class="site-footer">
+
         <div class="container footer-inner">
+
             <div>
-                <strong>Denz Godwen D. Macasero</strong>
-                <p>Student Profile • BSIT</p>
+
+                <strong id="footer-name">
+                    Denz Godwen D. Macasero
+                </strong>
+
+                <p>
+                    Student Profile • BSIT
+                </p>
+
             </div>
-            <p>&copy; 2026 Denz Godwen D. Macasero. All rights reserved.</p>
+
+            <p>
+                &copy; 2026 Denz Godwen D. Macasero.
+                All rights reserved.
+            </p>
+
         </div>
+
     </footer>
+
+
+    <script src="cordova.js"></script>
+
+    <script src="js/index.js"></script>
+
 </body>
 </html>
