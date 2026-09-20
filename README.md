@@ -1,4 +1,4 @@
-# Denz Student Profile Cordova
+<img width="488" height="930" alt="Updated Profile" src="https://github.com/user-attachments/assets/135f2725-5a55-4794-b8ab-239ab1a0968c" /># Denz Student Profile Cordova
 
 This is my student profile app made using Cordova, HTML, CSS, and JavaScript.
 
@@ -65,17 +65,17 @@ The following features were tested:
 
 ## Screenshots
 
-### Student Profilegit s
+### Student Profile
 
-![Student Profile](screenshots/profile.png)
+<img width="496" height="925" alt="Student Profile" src="https://github.com/user-attachments/assets/6111eaf4-90dc-4551-842e-9f1f04f53dd6" />
 
 ### Edit Profile Form
 
-![Edit Profile Form](screenshots/edit-profile.png)
+<img width="482" height="931" alt="Edit Profile form" src="https://github.com/user-attachments/assets/c79ed092-d86f-41d5-85fc-45ccaff3f35b" />
 
 ### Updated Profile
 
-![Updated Profile](screenshots/updated-profile.png)
+<img width="488" height="930" alt="Updated Profile" src="https://github.com/user-attachments/assets/ce304ea1-3314-4540-b421-86a64205a3a3" />
 
 ## Author
 
