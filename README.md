@@ -1,4 +1,4 @@
-<img width="488" height="930" alt="Updated Profile" src="https://github.com/user-attachments/assets/135f2725-5a55-4794-b8ab-239ab1a0968c" /># Denz Student Profile Cordova
+# Denz Student Profile Cordova
 
 This is my student profile app made using Cordova, HTML, CSS, and JavaScript.
 
