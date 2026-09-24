@@ -25,21 +25,38 @@
     <header class="site-header">
         <div class="container header-inner">
 
-            <a class="brand" href="index.html"
-               aria-label="Denz Macasero - Profile homepage">
+            <div class="brand">
 
-                <img src="img/profile.jpg"
-                     alt="Denz Macasero profile picture">
+                <button
+                    type="button"
+                    class="profile-picture-button"
+                    id="profile-picture-btn"
+                    aria-label="Change profile picture">
 
-                <span class="brand-text">
+                    <img
+                        id="profile-picture"
+                        src="img/profile.jpg"
+                        alt="Denz Macasero profile picture">
+
+                </button>
+
+                <a
+                    class="brand-text"
+                    href="index.html"
+                    aria-label="Denz Macasero - Profile homepage">
+
                     <strong id="header-name">
                         Denz Godwen D. Macasero
                     </strong>
 
-                    <span>BSIT Student • About Myself</span>
-                </span>
+                    <span>
+                        BSIT Student • About Myself
+                    </span>
 
-            </a>
+                </a>
+
+            </div>
+
 
             <nav class="site-nav" aria-label="Main navigation">
                 <a href="index.html" aria-current="page">Profile</a>
@@ -76,6 +93,7 @@
                         user-friendly digital experiences.
                     </p>
 
+
                     <div class="hero-actions" aria-label="Profile shortcuts">
 
                         <a class="button primary" href="#about">
@@ -88,6 +106,7 @@
 
                     </div>
 
+
                     <button
                         type="button"
                         class="button primary edit-profile-button"
@@ -96,6 +115,22 @@
                         Edit Profile
 
                     </button>
+
+
+                    <button
+                        type="button"
+                        class="button secondary"
+                        id="change-profile-picture-btn">
+
+                        Change Profile Picture
+
+                    </button>
+
+
+                    <p
+                        id="camera-message"
+                        class="form-message">
+                    </p>
 
                 </div>
 
@@ -111,6 +146,7 @@
                         </strong>
                     </div>
 
+
                     <div class="info-row">
                         <span>Course</span>
 
@@ -118,6 +154,7 @@
                             BS Information Technology
                         </strong>
                     </div>
+
 
                     <div class="info-row">
                         <span>Year Level</span>
@@ -127,6 +164,7 @@
                         </strong>
                     </div>
 
+
                     <div class="info-row">
                         <span>Focus</span>
 
@@ -134,6 +172,7 @@
                             Web Development &amp; UI/UX
                         </strong>
                     </div>
+
 
                     <div class="info-row">
                         <span>Goal</span>
@@ -160,6 +199,7 @@
                 <div class="section-heading">
 
                     <div>
+
                         <p class="section-label">
                             EDIT • PROFILE
                         </p>
@@ -167,6 +207,7 @@
                         <h2>
                             Edit Profile
                         </h2>
+
                     </div>
 
                     <p class="section-intro">
@@ -207,6 +248,7 @@
 
                     </div>
 
+
                     <div class="form-group">
 
                         <label for="year-level">
@@ -235,6 +277,7 @@
                             placeholder="Tell something about yourself"></textarea>
 
                     </div>
+
 
                     <div class="form-group">
 
@@ -266,6 +309,7 @@
                             Save Profile
 
                         </button>
+
 
                         <button
                             type="button"
@@ -403,6 +447,7 @@
                 </p>
 
             </div>
+
 
             <p>
                 &copy; 2026 Denz Godwen D. Macasero.
