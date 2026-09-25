@@ -1,67 +1,56 @@
 # Denz Student Profile Cordova
 
-This is my student profile app made using Cordova, HTML, CSS, and JavaScript.
+A responsive student profile app made with Cordova, HTML, CSS, and JavaScript.
 
 ## Features
 
-- Profile
-- About
-- Skills
-- Projects
-- Contact
-- Edit Profile
-- Save and Cancel
-- Form validation
-- Saves profile information using localStorage
-- Responsive design
+* Profile, About, Skills, Projects, and Contact pages
+* Edit Profile with Save and Cancel
+* Form validation
+* localStorage for profile data
+* Camera profile picture
+* Retake and cancel camera
+* Camera permission and error handling
+* Responsive design
 
-## Edit Profile
+## Camera
 
-The Edit Profile feature allows me to change my:
+The app uses the Cordova Camera Plugin through:
 
-- Full Name
-- Course
-- Year Level
-- About Me
-- Skills
+```javascript
+navigator.camera.getPicture()
+```
 
-The changes are saved using localStorage, so the information stays even after closing and opening the app again.
+Captured profile pictures are saved using localStorage and remain after restarting the app.
 
-## Pages
+## Tools
 
-- **Profile** – Shows my basic student information.
-- **About** – Shows information about me.
-- **Skills** – Shows my skills.
-- **Projects** – Shows my projects.
-- **Contact** – Shows my contact information.
-
-## Tools Used
-
-- HTML
-- CSS
-- JavaScript
-- Cordova
-- Android Studio
-- GitHub
+* HTML
+* CSS
+* JavaScript
+* Cordova
+* Cordova Camera Plugin
+* Android Studio
+* GitHub
 
 ## How to Run
 
-Open the project folder in VS Code and run:
-
 ```bash
+cordova plugin add cordova-plugin-camera
+cordova platform add android
 cordova run android
 ```
 
 ## Testing
 
-The following features were tested:
-
-- Edit Profile – Passed
-- Cancel – Passed
-- Empty Fields – Passed
-- Save and Reopen – Passed
-- Multiple Updates – Passed
-- Page Navigation – Passed
+* Edit Profile – Passed
+* Save and Cancel – Passed
+* Form Validation – Passed
+* Page Navigation – Passed
+* Camera Capture – Passed
+* Retake and Cancel – Passed
+* Picture Persistence – Passed
+* Camera Error Handling – Passed
 
 ## Screenshots
 
@@ -69,7 +58,7 @@ The following features were tested:
 
 <img width="496" height="925" alt="Student Profile" src="https://github.com/user-attachments/assets/6111eaf4-90dc-4551-842e-9f1f04f53dd6" />
 
-### Edit Profile Form
+### Edit Profile
 
 <img width="482" height="931" alt="Edit Profile form" src="https://github.com/user-attachments/assets/c79ed092-d86f-41d5-85fc-45ccaff3f35b" />
 
@@ -80,5 +69,4 @@ The following features were tested:
 ## Author
 
 Denz Godwen D. Macasero
-
 BS Information Technology
