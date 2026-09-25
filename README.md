@@ -66,6 +66,15 @@ cordova run android
 
 <img width="488" height="930" alt="Updated Profile" src="https://github.com/user-attachments/assets/ce304ea1-3314-4540-b421-86a64205a3a3" />
 
+### Camera Profile Picture
+
+<img width="492" height="917" alt="Screenshot 2026-09-25 211937" src="https://github.com/user-attachments/assets/a8ba8567-f15a-48a4-92fa-f7e72e772dad" />
+
+### Retake Photo
+
+<img width="471" height="921" alt="Screenshot 2026-09-25 211131" src="https://github.com/user-attachments/assets/a98239f4-efa6-4fe2-bf58-3c89471226cf" />
+
+
 ## Author
 
 Denz Godwen D. Macasero
