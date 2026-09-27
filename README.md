@@ -106,19 +106,6 @@ Email: macaserodenzgodwen@gmail.com
 
 The password is not included in the repository.
 
-## Testing
-
-| Test              | Result                           |
-| ----------------- | -------------------------------- |
-| Valid Login       | Passed                           |
-| Invalid Login     | Passed                           |
-| Profile Retrieval | Passed                           |
-| Edit Profile      | Passed                           |
-| Database Update   | Passed                           |
-| CRUD Operations   | Passed                           |
-| Logout            | Passed                           |
-| Data Persistence  | Passed                           |
-| Camera            | Requires Cordova device/emulator |
 
 ## Screenshots
 
