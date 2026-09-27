@@ -12,7 +12,7 @@ This is my student profile mobile application made using Cordova, HTML, CSS, Jav
 * REST API
 * CRUD operations
 * Logout
-* Profile picture using the device camera
+* Profile picture using the cordova app camera
 * Form validation
 * Data persistence
 * Responsive design
