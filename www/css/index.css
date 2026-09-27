@@ -28,6 +28,12 @@ a {
     color: inherit;
 }
 
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+
 .container {
     width: min(1120px, calc(100% - 40px));
     margin-inline: auto;
@@ -89,22 +95,30 @@ a {
     display: flex;
     align-items: center;
     gap: 8px;
+    flex-wrap: wrap;
 }
 
-.site-nav a {
+.site-nav a,
+.site-nav button {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     min-height: 44px;
     padding: 8px 16px;
+    border: 0;
     border-radius: 10px;
     color: #39445a;
+    background: transparent;
     font-size: 0.95rem;
     font-weight: 700;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .site-nav a:hover,
-.site-nav a:focus-visible {
+.site-nav a:focus-visible,
+.site-nav button:hover,
+.site-nav button:focus-visible {
     background: #edf2ff;
     color: #2346a8;
     outline: none;
@@ -182,6 +196,7 @@ h1 span {
     border-radius: 12px;
     font-weight: 800;
     text-decoration: none;
+    cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
@@ -337,9 +352,11 @@ h2 {
     letter-spacing: 0.08em;
 }
 
-.skill-card h3 {
+.skill-card h3,
+.skill-card h2 {
     margin: 22px 0 8px;
     font-size: 1.25rem;
+    line-height: 1.25;
 }
 
 .skill-card p {
@@ -370,129 +387,6 @@ h2 {
     color: #b7c0d1;
     font-size: 0.85rem;
 }
-
-@media (max-width: 900px) {
-    .container {
-        width: min(100% - 32px, 760px);
-    }
-
-    .hero {
-        padding: 60px 0 66px;
-    }
-
-    .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 34px;
-    }
-
-    .hero-card {
-        max-width: 680px;
-    }
-
-    .section-grid {
-        grid-template-columns: 1fr;
-        gap: 28px;
-    }
-
-    .section-heading {
-        align-items: start;
-        flex-direction: column;
-        gap: 14px;
-    }
-
-    .skills-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 600px) {
-    html {
-        scroll-padding-top: 132px;
-    }
-
-    .container {
-        width: min(100% - 24px, 520px);
-    }
-
-    .header-inner {
-        min-height: 0;
-        padding: 12px 0;
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .brand {
-        width: 100%;
-    }
-
-    .brand img {
-        width: 44px;
-        height: 44px;
-    }
-
-    .site-nav {
-        width: 100%;
-    }
-
-    .site-nav a {
-        flex: 1;
-        justify-content: center;
-        min-height: 46px;
-        background: #f4f6fb;
-    }
-
-    .hero {
-        padding: 48px 0 54px;
-    }
-
-    h1 {
-        font-size: clamp(2.4rem, 13vw, 3.7rem);
-    }
-
-    .hero-text {
-        font-size: 1rem;
-    }
-
-    .hero-actions {
-        flex-direction: column;
-    }
-
-    .button {
-        width: 100%;
-    }
-
-    .content-section {
-        padding: 64px 0;
-    }
-
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .skill-card {
-        min-height: auto;
-    }
-
-    .footer-inner {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 12px;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-
-    *,
-    *::before,
-    *::after {
-        transition: none !important;
-    }
-}
-
 
 .projects-grid {
     display: grid;
@@ -585,29 +479,6 @@ h2 {
     font-weight: 700;
 }
 
-.skill-card h2 {
-    margin: 22px 0 8px;
-    font-size: 1.25rem;
-    line-height: 1.25;
-}
-
-@media (max-width: 900px) {
-    .projects-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 600px) {
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .project-card {
-        min-height: auto;
-    }
-}
-
-
 .edit-profile-section {
     margin-top: 20px;
 }
@@ -644,8 +515,8 @@ h2 {
 
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: #222222;
-    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+    border-color: #3157c8;
+    box-shadow: 0 0 0 3px rgba(49, 87, 200, 0.1);
 }
 
 .form-group textarea {
@@ -678,15 +549,241 @@ h2 {
     color: #b42318;
 }
 
-@media (max-width: 768px) {
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #eef3ff 0%, #ffffff 60%, #f7f9ff 100%);
+}
 
-    #profile-form {
+.login-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 32px;
+    border: 1px solid #dde3ee;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 18px 45px rgba(31, 43, 70, 0.1);
+}
+
+.login-card h1 {
+    text-align: center;
+    margin: 0 0 8px;
+    font-size: clamp(2rem, 8vw, 3rem);
+}
+
+.login-subtitle {
+    text-align: center;
+    margin: 0 0 28px;
+    color: #697386;
+}
+
+.login-card .form-group {
+    margin-bottom: 18px;
+}
+
+.login-card label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: 600;
+}
+
+.login-card input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d6d6d6;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #222222;
+    font-size: 16px;
+    outline: none;
+}
+
+.login-card input:focus {
+    border-color: #3157c8;
+    box-shadow: 0 0 0 3px rgba(49, 87, 200, 0.1);
+}
+
+.primary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 46px;
+    padding: 10px 20px;
+    border: 0;
+    border-radius: 12px;
+    background: #3157c8;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.primary-btn:hover,
+.primary-btn:focus-visible {
+    background: #2649b0;
+    transform: translateY(-1px);
+    outline: none;
+}
+
+#login-message {
+    min-height: 22px;
+    margin: 16px 0 0;
+    color: #b42318;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.camera-section {
+    margin-top: 20px;
+}
+
+.camera-message {
+    margin-top: 10px;
+    color: #5f6b80;
+    font-size: 14px;
+}
+
+.profile-picture-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+#profile-picture {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #ffffff;
+    box-shadow: 0 10px 30px rgba(31, 43, 70, 0.15);
+}
+
+@media (max-width: 900px) {
+    .container {
+        width: min(100% - 32px, 760px);
+    }
+
+    .hero {
+        padding: 60px 0 66px;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 34px;
+    }
+
+    .hero-card {
+        max-width: 680px;
+    }
+
+    .section-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .section-heading {
+        align-items: start;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .skills-grid,
+    .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    html {
+        scroll-padding-top: 132px;
+    }
+
+    .container {
+        width: min(100% - 24px, 520px);
+    }
+
+    .header-inner {
+        min-height: 0;
+        padding: 12px 0;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .brand {
         width: 100%;
     }
 
-    .form-group input,
-    .form-group textarea {
-        font-size: 16px;
+    .brand img {
+        width: 44px;
+        height: 44px;
+    }
+
+    .site-nav {
+        width: 100%;
+    }
+
+    .site-nav a,
+    .site-nav button {
+        flex: 1;
+        justify-content: center;
+        min-height: 46px;
+        background: #f4f6fb;
+    }
+
+    .hero {
+        padding: 48px 0 54px;
+    }
+
+    h1 {
+        font-size: clamp(2.4rem, 13vw, 3.7rem);
+    }
+
+    .hero-text {
+        font-size: 1rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .button {
+        width: 100%;
+    }
+
+    .content-section {
+        padding: 64px 0;
+    }
+
+    .skills-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-card,
+    .project-card {
+        min-height: auto;
+    }
+
+    .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .login-card {
+        padding: 24px 20px;
+    }
+
+    #profile-picture {
+        width: 150px;
+        height: 150px;
     }
 
     .form-actions {
@@ -701,5 +798,17 @@ h2 {
     .edit-profile-button {
         width: 100%;
         text-align: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
     }
 }

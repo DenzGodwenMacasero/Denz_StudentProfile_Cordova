@@ -8,6 +8,7 @@ function onDeviceReady() {
 }
 
 const API_URL = 'http://localhost:3000/api/profile';
+const LOGOUT_API_URL = 'http://localhost:3000/api/logout';
 
 const defaultProfile = {
     id: null,
@@ -27,8 +28,94 @@ let currentProfile = null;
 document.addEventListener('deviceready', onDeviceReady, false);
 
 document.addEventListener('DOMContentLoaded', function () {
-    loadProfile();
+    const token = localStorage.getItem('authToken');
 
+    if (!token) {
+        window.location.href = 'login.html';
+        return;
+    }
+
+    loadProfile();
+    setupLogout();
+    setupProfileEditing();
+    setupCamera();
+});
+
+function getAuthHeaders() {
+    const token = localStorage.getItem('authToken');
+
+    return {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token
+    };
+}
+
+function handleUnauthorized() {
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('studentId');
+    localStorage.removeItem('studentProfile');
+    window.location.href = 'login.html';
+}
+
+function setupLogout() {
+    const nav = document.querySelector('.site-nav');
+
+    if (!nav) {
+        return;
+    }
+
+    let logoutButton = document.getElementById('logout-btn');
+
+    if (!logoutButton) {
+        logoutButton = document.createElement('button');
+        logoutButton.id = 'logout-btn';
+        logoutButton.type = 'button';
+        logoutButton.textContent = 'Logout';
+        nav.appendChild(logoutButton);
+    }
+
+    logoutButton.addEventListener('click', logout);
+}
+
+async function logout() {
+    const token = localStorage.getItem('authToken');
+
+    if (!token) {
+        handleUnauthorized();
+        return;
+    }
+
+    try {
+        const response = await fetch(LOGOUT_API_URL, {
+            method: 'POST',
+            headers: {
+                'Authorization': 'Bearer ' + token
+            }
+        });
+
+        localStorage.removeItem('authToken');
+        localStorage.removeItem('studentId');
+        localStorage.removeItem('studentProfile');
+
+        if (!response.ok) {
+            window.location.href = 'login.html';
+            return;
+        }
+
+        window.location.href = 'login.html';
+
+    } catch (error) {
+        console.error('Logout error:', error);
+
+        localStorage.removeItem('authToken');
+        localStorage.removeItem('studentId');
+        localStorage.removeItem('studentProfile');
+
+        window.location.href = 'login.html';
+    }
+}
+
+function setupProfileEditing() {
     const editButton =
         document.getElementById('edit-profile-btn');
 
@@ -61,7 +148,9 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         );
     }
+}
 
+function setupCamera() {
     const profilePictureButton =
         document.getElementById('profile-picture-btn');
 
@@ -83,122 +172,62 @@ document.addEventListener('DOMContentLoaded', function () {
             openCamera
         );
     }
-});
+}
 
 async function loadProfile() {
+    const token = localStorage.getItem('authToken');
+
+    if (!token) {
+        handleUnauthorized();
+        return;
+    }
+
     try {
-        const response =
-            await fetch(API_URL);
+        const response = await fetch(
+            API_URL + '/me',
+            {
+                method: 'GET',
+                headers: getAuthHeaders()
+            }
+        );
 
-        if (!response.ok) {
-            throw new Error(
-                'API request failed'
-            );
-        }
-
-        const profiles =
-            await response.json();
-
-        if (profiles.length > 0) {
-            const profile =
-                apiToLocalProfile(
-                    profiles[0]
-                );
-
-            currentProfile = profile;
-
-            localStorage.setItem(
-                'studentProfile',
-                JSON.stringify(profile)
-            );
-
-            displayProfile(profile);
+        if (response.status === 401) {
+            handleUnauthorized();
             return;
         }
 
-        const savedProfile =
-            localStorage.getItem(
-                'studentProfile'
-            );
-
-        if (savedProfile) {
-            try {
-                const profile =
-                    JSON.parse(savedProfile);
-
-                currentProfile = profile;
-                displayProfile(profile);
-
-            } catch (error) {
-                currentProfile =
-                    Object.assign(
-                        {},
-                        defaultProfile
-                    );
-
-                displayProfile(
-                    currentProfile
-                );
-            }
-        } else {
-            currentProfile =
-                Object.assign(
-                    {},
-                    defaultProfile
-                );
-
-            displayProfile(
-                currentProfile
-            );
+        if (!response.ok) {
+            throw new Error('Profile retrieval failed');
         }
+
+        const profile = await response.json();
+
+        currentProfile =
+            apiToLocalProfile(profile);
+
+        localStorage.setItem(
+            'studentProfile',
+            JSON.stringify(currentProfile)
+        );
+
+        displayProfile(currentProfile);
 
     } catch (error) {
         console.error(
-            'Error loading profile from API:',
+            'Error loading profile:',
             error
         );
 
-        const savedProfile =
-            localStorage.getItem(
-                'studentProfile'
-            );
-
-        if (savedProfile) {
-            try {
-                const profile =
-                    JSON.parse(savedProfile);
-
-                currentProfile = profile;
-                displayProfile(profile);
-
-            } catch (parseError) {
-                currentProfile =
-                    Object.assign(
-                        {},
-                        defaultProfile
-                    );
-
-                displayProfile(
-                    currentProfile
-                );
-            }
-        } else {
-            currentProfile =
-                Object.assign(
-                    {},
-                    defaultProfile
-                );
-
-            displayProfile(
-                currentProfile
-            );
-        }
+        showMessage(
+            'Unable to retrieve your profile from the database.'
+        );
     }
 }
 
 function apiToLocalProfile(profile) {
     return {
         id: profile.id,
+        studentId: profile.student_id || '',
         fullName: profile.name || '',
         email: profile.email || '',
         age: profile.age || 20,
@@ -530,14 +559,11 @@ async function saveProfile() {
         defaultProfile;
 
     const updatedProfile = {
-        id: oldProfile.id || null,
+        id: oldProfile.id,
+        studentId: oldProfile.studentId,
         fullName: fullName,
-        email:
-            oldProfile.email ||
-            'macaserodenzgodwen@gmail.com',
-        age:
-            oldProfile.age ||
-            20,
+        email: oldProfile.email,
+        age: oldProfile.age,
         course: course,
         yearLevel: yearLevel,
         aboutMe: aboutMe,
@@ -556,57 +582,33 @@ async function saveProfile() {
         );
 
     try {
-        let response;
-
-        if (updatedProfile.id) {
-            response =
-                await fetch(
-                    API_URL +
-                    '/' +
-                    updatedProfile.id,
-                    {
-                        method: 'PUT',
-                        headers: {
-                            'Content-Type':
-                                'application/json'
-                        },
-                        body:
-                            JSON.stringify(
-                                apiData
-                            )
-                    }
-                );
-        } else {
-            response =
-                await fetch(
-                    API_URL,
-                    {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type':
-                                'application/json'
-                        },
-                        body:
-                            JSON.stringify(
-                                apiData
-                            )
-                    }
-                );
-        }
-
-        if (!response.ok) {
-            throw new Error(
-                'Profile could not be saved.'
+        const response =
+            await fetch(
+                API_URL + '/me',
+                {
+                    method: 'PUT',
+                    headers: getAuthHeaders(),
+                    body:
+                        JSON.stringify(
+                            apiData
+                        )
+                }
             );
+
+        if (response.status === 401) {
+            handleUnauthorized();
+            return;
         }
 
         const result =
             await response.json();
 
-        if (!updatedProfile.id &&
-            result.id) {
-            updatedProfile.id =
-                result.id;
+        if (!response.ok) {
+            showMessage(
+                result.message ||
+                'Profile could not be updated.'
+            );
+            return;
         }
 
         currentProfile =
@@ -634,32 +636,18 @@ async function saveProfile() {
         }
 
         showMessage(
-            'Profile saved successfully.',
+            'Profile updated successfully.',
             false
         );
 
     } catch (error) {
         console.error(
-            'Error saving profile:',
+            'Error updating profile:',
             error
         );
 
-        localStorage.setItem(
-            'studentProfile',
-            JSON.stringify(
-                updatedProfile
-            )
-        );
-
-        currentProfile =
-            updatedProfile;
-
-        displayProfile(
-            updatedProfile
-        );
-
         showMessage(
-            'API unavailable. Profile saved locally.'
+            'Unable to connect to the database.'
         );
     }
 }
@@ -778,30 +766,32 @@ async function saveCameraImage(imageData) {
                 profile
             );
 
-        if (profile.id) {
-            const response =
-                await fetch(
-                    API_URL +
-                    '/' +
-                    profile.id,
-                    {
-                        method: 'PUT',
-                        headers: {
-                            'Content-Type':
-                                'application/json'
-                        },
-                        body:
-                            JSON.stringify(
-                                apiData
-                            )
-                    }
-                );
+        const response =
+            await fetch(
+                API_URL + '/me',
+                {
+                    method: 'PUT',
+                    headers: getAuthHeaders(),
+                    body:
+                        JSON.stringify(
+                            apiData
+                        )
+                }
+            );
 
-            if (!response.ok) {
-                throw new Error(
-                    'Profile picture API update failed.'
-                );
-            }
+        if (response.status === 401) {
+            handleUnauthorized();
+            return;
+        }
+
+        if (!response.ok) {
+            const result =
+                await response.json();
+
+            throw new Error(
+                result.message ||
+                'Profile picture update failed.'
+            );
         }
 
         currentProfile =
@@ -839,22 +829,8 @@ async function saveCameraImage(imageData) {
             error
         );
 
-        localStorage.setItem(
-            'studentProfile',
-            JSON.stringify(
-                profile
-            )
-        );
-
-        currentProfile =
-            profile;
-
-        displayProfile(
-            profile
-        );
-
         showCameraMessage(
-            'API unavailable. Profile picture saved locally.'
+            'Unable to save the profile picture to the database.'
         );
     }
 }
