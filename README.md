@@ -1,70 +1,149 @@
 # Denz Student Profile Cordova
 
-A responsive student profile app made with Cordova, HTML, CSS, and JavaScript.
+A responsive student profile mobile application built with Cordova, HTML, CSS, JavaScript, REST API, and MySQL.
 
 ## Features
 
+* Login using Student ID or Email
+* Password authentication
 * Profile, About, Skills, Projects, and Contact pages
-* Edit Profile with Save and Cancel
-* Form validation
-* localStorage for profile data
+* Edit Profile
+* MySQL database
+* REST API
+* CRUD operations
+* Logout
 * Camera profile picture
-* Retake and cancel camera
-* Camera permission and error handling
+* Form validation
+* Data persistence
 * Responsive design
+
+## Authentication
+
+Users must log in before accessing the student profile.
+
+The backend uses session tokens for authentication. Logout invalidates the session and returns the user to the Login page.
+
+Passwords are stored using bcrypt hashing.
+
+## Database
+
+Database:
+
+```text
+denz_student_profile
+```
+
+Tables:
+
+```text
+profile
+student_accounts
+```
+
+Profile data includes Student ID, Name, Course, Year Level, About Me, Skills, Projects, and Profile Picture.
+
+## REST API
+
+```text
+POST   /api/login
+POST   /api/logout
+GET    /api/profile/me
+PUT    /api/profile/me
+POST   /api/profile
+GET    /api/profile
+GET    /api/profile/:id
+DELETE /api/profile/:id
+```
 
 ## Camera
 
-The app uses the Cordova Camera Plugin through:
+The app uses the Cordova Camera Plugin.
 
 ```javascript
 navigator.camera.getPicture()
 ```
 
-Captured profile pictures are saved using localStorage and remain after restarting the app.
+The native camera requires running the Cordova application on a supported device or emulator.
 
-## Tools
+## Security
 
-* HTML
-* CSS
-* JavaScript
-* Cordova
-* Cordova Camera Plugin
-* Android Studio
-* GitHub
+* Database credentials are stored in `.env`.
+* `.env` is excluded from GitHub.
+* Passwords are hashed using bcrypt.
+* Protected API endpoints require authentication.
+* The app does not connect directly to MySQL.
 
 ## How to Run
 
+Start MySQL, then run the backend:
+
 ```bash
-cordova plugin add cordova-plugin-camera
+cd backend
+npm install
+npm start
+```
+
+Backend:
+
+```text
+http://localhost:3000
+```
+
+For browser testing:
+
+```bash
+cd www
+npx.cmd serve
+```
+
+For Cordova:
+
+```bash
 cordova platform add android
 cordova run android
 ```
 
+## Test Account
+
+```text
+Student ID: 20220024745
+Email: macaserodenzgodwen@gmail.com
+```
+
+Password is not included in the public repository.
+
 ## Testing
 
-* Edit Profile – Passed
-* Save and Cancel – Passed
-* Form Validation – Passed
-* Page Navigation – Passed
-* Camera Capture – Passed
-* Retake and Cancel – Passed
-* Picture Persistence – Passed
-* Camera Error Handling – Passed
+| Test              | Result                           |
+| ----------------- | -------------------------------- |
+| Valid Login       | Passed                           |
+| Invalid Login     | Passed                           |
+| Profile Retrieval | Passed                           |
+| Edit Profile      | Passed                           |
+| Database Update   | Passed                           |
+| Logout            | Passed                           |
+| Data Persistence  | Passed                           |
+| Camera            | Requires Cordova device/emulator |
 
 ## Screenshots
 
-### Student Profile
+### Login and Profile
 
-<img width="496" height="925" alt="Student Profile" src="https://github.com/user-attachments/assets/6111eaf4-90dc-4551-842e-9f1f04f53dd6" />
+
+### Invalid Login
+
 
 ### Edit Profile
 
-<img width="482" height="931" alt="Edit Profile form" src="https://github.com/user-attachments/assets/c79ed092-d86f-41d5-85fc-45ccaff3f35b" />
 
-### Updated Profile
+### MySQL Update
 
-<img width="488" height="930" alt="Updated Profile" src="https://github.com/user-attachments/assets/ce304ea1-3314-4540-b421-86a64205a3a3" />
+![MySQL Update](screenshots/activity-7/database-update.png)
+
+### CRUD Testing
+
+
+
 
 ## Author
 
