@@ -4,9 +4,10 @@
     <meta charset="utf-8">
 
     <meta http-equiv="Content-Security-Policy"
-          content="default-src 'self' data: https://ssl.gstatic.com;
-                   style-src 'self' 'unsafe-inline';
-                   img-src 'self' data: content:;">
+      content="default-src 'self' data: https://ssl.gstatic.com;
+               connect-src 'self' http://localhost:3000;
+               style-src 'self' 'unsafe-inline';
+               img-src 'self' data: content:;">
 
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
